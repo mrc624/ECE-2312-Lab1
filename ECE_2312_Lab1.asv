@@ -1,5 +1,4 @@
 
-%Part 1
 %%%%ECE2312--Lab0
 %Objective: Start coding in Matlab for Discrete-time Signal and Systems
 % Examples in this lab assignment is taken from
@@ -38,8 +37,8 @@ impz(b, 1, 0:4197)
 hold off
 
 h = -20:1:120;
-unit = zeros(1, 141);
-for n = 1:141
+unit = zeros(140);
+for n = 1:140
     if h(n) > 0
         unit(n) = 1;
     else
@@ -48,52 +47,8 @@ for n = 1:141
 end
 figure(2)
 hold on
-impz(b, 1, -20:120)
-unit = unit_step(h)
-plot(-20:120, unit)
-xlabel('n')
-ylabel('Response')
-title('Step Response h(n)')
+plot(n)
 hold off
 
-%end part 1
 
-%part 2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function u = unit_step(n)
-    u = (n >= 0);
-end
 
