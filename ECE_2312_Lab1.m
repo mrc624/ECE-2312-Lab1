@@ -32,10 +32,14 @@ x = filter(b,1,y); % Generate sound plus its echo
 % this system is very simple to implement in software or hardware.
 w = filter(1,b,x);
 % sound(w,Fs)
-figure(1)
-hold on
+t = tiledlayout(1,2);
+a1 = nexttile;
+title('Impulse response h(n)')
+xlabel('n')
+ylabel('Response')
 impz(b, 1, 0:4197)
-hold off
+a2 = nexttile;
+
 
 h = -20:1:120;
 unit = zeros(1, 141);
@@ -46,15 +50,12 @@ for n = 1:141
         unit(n) = 0;
     end
 end
-figure(2)
-hold on
-impz(b, 1, -20:120)
-unit = unit_step(h)
-plot(-20:120, unit)
+%impz(b, 1, -20:120);
+unit = unit_step(h);
+plot(a2,-20:120, unit)
 xlabel('n')
 ylabel('Response')
 title('Step Response h(n)')
-hold off
 
 %end part 1
 
